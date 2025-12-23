@@ -1,8 +1,11 @@
 import React from "react";
+
 import "../../style/searchresult.css"
 export default function SearchContentBox() {
     return (
         <>
+
+            {/* ********************************************************************************* */}
             <div className="list-grid-product-wrap">
                 <div id="sidebar_filter_hotel" className="row gy-md-5 gy-4">
                     <div
