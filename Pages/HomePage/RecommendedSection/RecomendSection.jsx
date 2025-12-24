@@ -19,9 +19,10 @@ export default function RecomendSection() {
     const search = localStorage.getItem("search")
 
     const { data } = useQuery({
-        queryKey: ["fetch data ", search],
+        queryKey: ["hotels ", search],
         queryFn: async () => await SearchLocation(search)
     })
+
     return (
         <>
             <section className='recomend_section container  pb-20'>

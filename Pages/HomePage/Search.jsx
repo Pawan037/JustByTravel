@@ -130,7 +130,7 @@ export default function Search() {
 
     const handleSearch = () => {
         if (!searchContent) return;
-        localStorage.setItem("search", searchContent);
+
         router.push(`/search?query=${searchContent}`);
     };
     return (

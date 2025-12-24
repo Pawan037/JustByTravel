@@ -78,7 +78,7 @@ export default function SearchContentBox() {
                                     <div className="hotel-card">
                                         <div className="hotel-img-wrap">
                                             <a
-                                                href="https://gofly-wp.egenstheme.com/hotel/radisson-blu/"
+                                                href="#"
                                                 className="hotel-img"
                                             >
                                                 <img
@@ -113,7 +113,7 @@ export default function SearchContentBox() {
                                                 </div>
                                             </div>
                                             <h5>
-                                                <a href="https://gofly-wp.egenstheme.com/hotel/radisson-blu/">
+                                                <a href="#">
                                                     {item?.title}
                                                 </a>
                                             </h5>
@@ -242,7 +242,7 @@ export default function SearchContentBox() {
                                             </div>
                                             <div className="btn-and-price-area">
                                                 <a
-                                                    href="https://gofly-wp.egenstheme.com/hotel/radisson-blu/"
+                                                    href="#"
                                                     className="primary-btn1"
                                                 >
                                                     <span>
