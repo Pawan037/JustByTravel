@@ -1,4 +1,5 @@
 
+import Search from './Search';
 import SearchSection from './SearchSection';
 export default function
     () {
@@ -30,7 +31,8 @@ export default function
                     {/* ************************ search Box */}
                 </div>
             </section>
-            <SearchSection />
+            {/* <SearchSection /> */}
+            <Search />
 
         </div>
     )

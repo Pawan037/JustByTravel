@@ -1,42 +1,83 @@
-import React from 'react'
+"use client";
+import React, { useEffect, useState } from 'react'
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { SearchLocation } from '@/app/Route/endpoints';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FaUserAlt } from 'react-icons/fa';
 import { IoTime } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
-navigator.geolocation.getCurrentPosition(
-    async (position) => {
-        const { latitude, longitude } = position.coords;
-        console.log(`Current location: ${latitude}, ${longitude}`);
-        // Get city name from coordinates
-        const cityName = await reverseGeocode(latitude, longitude);
-        if (cityName) {
-            setLocation(cityName);
-            console.log(`Location resolved to: ${cityName}`);
-            await doSearch(cityName);
-        } else {
-            // If reverse geocoding fails, use coordinates or fallback
-            const coordLocation = `${latitude.toFixed(2)}, ${longitude.toFixed(2)}`;
-            setLocation(coordLocation);
-            await doSearch(coordLocation);
-        }
-        setLocationFetching(false);
-    },
-    (err) => {
-        console.error("Geolocation error:", err);
-        // Fallback to default search on error
-        doSearch("New York");
-        setLocationFetching(false);
-    },
-    {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 60000,
-    }
-);
-// }, [reverseGeocode, doSearch])
-export default function StaticRecomendSection() {
 
+export default function StaticRecomendSection() {
+    const [locationFetching, setLocationFetching] = useState(true);
+    const [location, setLocation] = useState("");
+
+    const reverseGeocode = async (lat, lng) => {
+        try {
+            const response = await fetch(
+                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=10&addressdetails=1`,
+                { headers: { "User-Agent": "JustBuyTravel/1.0" } }
+            );
+            const data = await response.json();
+            if (data && data.address) {
+                const city = data.address.city || data.address.town || data.address.village;
+                if (city) return city;
+                return data.address.municipality || data.address.county || "Unknown Location";
+            }
+            return "Unknown Location";
+        } catch (error) {
+            console.error("Reverse geocoding error:", error);
+            return "Unknown Location";
+        }
+    };
+
+    const doSearch = async (query) => {
+        try {
+            const results = await SearchLocation(query);
+            console.log("Search results:", results);
+        } catch (err) {
+            console.error("Search error:", err);
+        }
+    };
+
+    useEffect(() => {
+        const getLocation = async () => {
+            if (typeof navigator === "undefined" || !navigator?.geolocation) {
+                console.warn("Geolocation not available");
+                setLocationFetching(false);
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(
+                async (position) => {
+                    const { latitude, longitude } = position.coords;
+                    console.log(`Current location: ${latitude}, ${longitude}`);
+                    const cityName = await reverseGeocode(latitude, longitude);
+                    if (cityName) {
+                        setLocation(cityName);
+                        console.log(`Location resolved to: ${cityName}`);
+                        await doSearch(cityName);
+                    } else {
+                        const coordLocation = `${latitude.toFixed(2)}, ${longitude.toFixed(2)}`;
+                        setLocation(coordLocation);
+                        await doSearch(coordLocation);
+                    }
+                    setLocationFetching(false);
+                },
+                (err) => {
+                    console.error("Geolocation error:", err);
+                    doSearch("New York");
+                    setLocationFetching(false);
+                },
+                {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 60000,
+                }
+            );
+        };
+
+        getLocation();
+    }, []);
 
     return (
         <>

@@ -209,6 +209,9 @@ button {
   font-family: var(--font-fam);
 }
 /* *****************************>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> recomended for you  */
+.recomend_section {
+  height: 100%;
+}
 .recomend_section > .section_title > .title_icon {
   top: -14%;
 }
@@ -229,7 +232,7 @@ button {
 .recommend_card_box > .card_box > .card_box_detail > h4 {
   font-family: var(--font-fam);
   font-weight: 700;
-  font-size: 25px;
+  font-size: 22px;
   color: var(--cl-bl);
   line-height: 32px;
   letter-spacing: 0%;
@@ -241,13 +244,13 @@ button {
   font-family: var(--font-fam);
   font-weight: 400;
   font-size: 15px;
-  line-height: 26px;
+  line-height: 22px;
   color: var(--cl-brown);
 }
 
 .recommend_card_box > .card_box > .card_box_detail > .price_book > h5 {
   font-weight: 800;
-  font-size: 25px;
+  font-size: 22px;
   line-height: 32px;
   font-family: var(--font-fam);
   letter-spacing: 0;
@@ -535,4 +538,26 @@ button {
 }
 .search_banner_box > .title > h2 > span {
   color: var(--bg-color);
+}
+/* (****************************** swiper .css  */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: block;
+  width: 100%;
+  height: auto !important;
+  object-fit: cover;
+}
+.card_col {
+  height: 100%;
+}
+#swiper_sldie > .swiper-wrapper {
+  padding: 44px 0px;
+}
+.swiper-pagination-bullet-active {
+  opacity: var(--bg-color) !important;
+  background: var(--bg-color) !important;
 }

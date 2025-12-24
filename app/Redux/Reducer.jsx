@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const USER = createSlice({
     name: "user",
     initialState: {
-        search: "ytg ",
+        search: "",
         active: false
     },
     reducers: {

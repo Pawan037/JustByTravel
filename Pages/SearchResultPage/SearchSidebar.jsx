@@ -234,23 +234,23 @@ export default function SearchSidebar() {
                                     data?.map((item, i) => {
                                         if (i >= visible) return null;
                                         return (
-                                            <>
-                                                <li>
-                                                    <label className="containerss">
-                                                        <input
-                                                            type="checkbox"
-                                                            name="amenity[]"
-                                                            value="babysitting-services"
-                                                        />
-                                                        <span className="checkmark"></span>
-                                                        <strong>
-                                                            <span>{item?.liname}</span> <span>{item?.nmber}</span>
-                                                        </strong>
-                                                    </label>
-                                                </li>
+
+                                            <li key={i}>
+                                                <label className="containerss">
+                                                    <input
+                                                        type="checkbox"
+                                                        name="amenity[]"
+                                                        value="babysitting-services"
+                                                    />
+                                                    <span className="checkmark"></span>
+                                                    <strong>
+                                                        <span>{item?.liname}</span> <span>{item?.nmber}</span>
+                                                    </strong>
+                                                </label>
+                                            </li>
 
 
-                                            </>
+
                                         )
 
                                     })
@@ -264,33 +264,33 @@ export default function SearchSidebar() {
                         </div>
                     </div>
                     {/* ******************************************************************** */}
-                    <div class="single-widgets">
-                        <div class="widget-title">
+                    <div className="single-widgets">
+                        <div className="widget-title">
                             <h5>Discount &amp; Offer</h5>
                         </div>
-                        <div class="checkbox-container two hotel-offer">
+                        <div className="checkbox-container two hotel-offer">
                             <ul style={{ height: "auto" }}>
                                 <li>
-                                    <label class="containerss">
+                                    <label className="containerss">
                                         <input
                                             type="checkbox"
                                             name="offer[]"
                                             value="last-minutes-deal"
                                         />
-                                        <span class="checkmark"></span>
+                                        <span className="checkmark"></span>
                                         <strong>
                                             <span>Last Minutes Deal</span> <span>08</span>
                                         </strong>
                                     </label>
                                 </li>
                                 <li>
-                                    <label class="containerss">
+                                    <label className="containerss">
                                         <input
                                             type="checkbox"
                                             name="offer[]"
                                             value="special-offer"
                                         />
-                                        <span class="checkmark"></span>
+                                        <span className="checkmark"></span>
                                         <strong>
                                             <span>Special Offer</span> <span>02</span>
                                         </strong>

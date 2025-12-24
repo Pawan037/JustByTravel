@@ -25,7 +25,7 @@ export default function Header() {
 
                     <Navbar expand="lg" className="">
                         <Container fluid className='p-0'>
-                            <Navbar.Brand href="#">
+                            <Navbar.Brand href="/">
                                 <div className="logo">
                                     <img src="/logo/logo.png.webp" alt="" />
                                 </div>
