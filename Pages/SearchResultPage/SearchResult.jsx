@@ -59,7 +59,7 @@ export default function SearchResult() {
                     <nav aria-label="breadcrumb ">
                         <ol className="breadcrumb mb-0 pt-3 pb-3 ps-2">
                             <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-                            <li className="breadcrumb-item active" aria-current="page">Library</li>
+                            <li className="breadcrumb-item active capitalize" aria-current="page">{data?.data?.data?.location}</li>
                         </ol>
                     </nav>
                 </div>

@@ -5,7 +5,7 @@ export default function Blogs() {
     return (
         <>
 
-            <section className='blog_section'>
+            <section className='blog_section mt-10 mb-10'>
                 <div className="destination_title section_title mb-10">
                     <h2 className='mb-0 capitalize'>
                         From the blog

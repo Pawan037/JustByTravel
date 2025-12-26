@@ -305,7 +305,7 @@ export default function SearchContentBox() {
                                                     <span>
                                                         {/* <del>$55.00</del> */}
 
-                                                        {item?.price}.00
+                                                        ${item?.price}.00
                                                     </span>
                                                 </div>{" "}
                                             </div>

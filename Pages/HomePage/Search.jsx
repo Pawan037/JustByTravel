@@ -72,7 +72,7 @@ export default function Search() {
             });
             if (checkin) params.append("checkin", checkin);
             if (checkout) params.append("checkout", checkout);
-            const res = await fetch(`${API_BASE}/api/hotels/search?${params.toString()}`);
+            const res = await fetch(`${API_BASE}/api/hotels/search?${params.toString()}`)
             const json = await res.json();
             if (!json.success) {
                 throw new Error(json.message || "Failed to fetch hotels");
@@ -202,7 +202,6 @@ export default function Search() {
                                             type="text"
                                             // value={searchContent}
                                             onChange={(e) => setSearchContent(e.target.value)}
-                                            disabled={isLoadingLocation} // Disable input while loading
                                             className="block w-full bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:outline-none focus:ring-0 placeholder:text-body"
                                             placeholder="Places to go, things to do, hotels..."
                                         />
