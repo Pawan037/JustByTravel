@@ -145,7 +145,7 @@ export default function Search() {
 
     return (
         <>
-            <section className="Search_section pb-[70px] md:pb-[20px]  sm:pb-[20px] xs:pb-[20px] md-pb">
+            <section className="Search_section padding_bottom padding_top  md-pb">
                 <div className="container">
                     <div className="search_container">
                         <div className="search_container_box bg-white rounded-2xl pb-4 w-full">
@@ -208,7 +208,7 @@ export default function Search() {
                                         <button
                                             type="submit"
 
-                                            className="absolute top-2 end-3 bg-brand hover:bg-brand-strong box-border border border-transparent shadow-xs font-medium leading-5 text-xs px-3 focus:outline-none button_bg2"
+                                            className="absolute top-2 end-3 bg-brand hover:bg-brand-strong box-border border border-transparent shadow-xs font-medium leading-5 text-xs  focus:outline-none button_bg2"
                                         >
                                             Search
                                         </button>
@@ -224,7 +224,10 @@ export default function Search() {
                                     <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none icon_search">
                                         <CiSearch />
                                     </div>
-                                    <form action="">
+                                    <form onSubmit={(e) => {
+                                        e.preventDefault();
+                                        handleSearch();
+                                    }}>
                                         <input
                                             type="text"
                                             // value={searchContent}

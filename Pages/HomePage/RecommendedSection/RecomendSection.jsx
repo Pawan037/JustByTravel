@@ -26,8 +26,8 @@ export default function RecomendSection() {
 
     return (
         <>
-            <section className='recomend_section container  pb-20'>
-                <div className="section_title relative pb-10 pt-10">
+            <section className='recomend_section container  padding_bottom padding_top'>
+                <div className="section_title relative ">
                     <h2 className='mb-0'>
                         Recommended For You
                     </h2>
@@ -43,18 +43,30 @@ export default function RecomendSection() {
                 <div className="row">
                     <Swiper
                         slidesPerView={3}
-                        spaceBetween={30}
+                        spaceBetween={0}
                         pagination={{
                             clickable: true,
                         }}
-                        modules={[Autoplay, Navigation, Pagination]}
+                        modules={[Navigation, Pagination]}
                         className="mySwiper"
                         // navigation={true}
-                        autoplay={{
-                            delay: 3000, // 3 seconds
-                            disableOnInteraction: false, // continue autoplay after user interaction
-                        }}
+                        // autoplay={{
+                        //     delay: 3000,
+                        //     disableOnInteraction: false,
+                        // }}
                         breakpoints={{
+                            320: {
+                                slidesPerView: 1
+
+                            },
+                            375: {
+                                slidesPerView: 1
+
+                            },
+                            425: {
+                                slidesPerView: 1
+
+                            },
                             640: {
                                 slidesPerView: 1, // mobile
                             },
@@ -69,80 +81,79 @@ export default function RecomendSection() {
                         id='swiper_sldie'
                     >
                         {
-                            data?.data?.data?.hotels?.slice(0, 6)?.map((item, i) => {
-                                let titlecontent = item?.title.split(" ").slice(0, 3).join(" ");
-                                if (titlecontent?.length > 3) {
+                            data?.data?.hotels?.slice(0, 6)?.map((item, i) => {
+                                console.log(item, "item,.....................................>");
+
+                                let titlecontent = item?.name.split("").slice(0, 15).join("");
+                                if (titlecontent?.length > 11) {
                                     titlecontent += "..."
                                 }
                                 return (
-
-                                    <SwiperSlide> <div className="card_col " key={i} >
-                                        {/* *********** */}
-                                        <div className="recommend_card_box   rounded-3xl shadow margin_lr ">
+                                    <>
+                                        <SwiperSlide key={i}> <div className="card_col"  >
                                             {/* *********** */}
-                                            <div className="card_box pe-">
-                                                <div className="card_box_img rounded-3xl  relative">
-                                                    <img src={item?.thumbnail} className='rounded-3xl' alt="" />
-                                                    {/* ********************* */}
-                                                    <div className="rated_msg absolute top-5 flex  justify-between items-center left-5 right-5">
-                                                        <div className="msg">
-                                                            <p className='m-0'>top rated</p>
+                                            <div className="recommend_card_box   rounded-3xl shadow margin_lr ">
+                                                {/* *********** */}
+                                                <div className="card_box pe-">
+                                                    <div className="card_box_img rounded-3xl  relative">
+                                                        <img src={item?.image} className='rounded-3xl' alt="" />
+                                                        {/* ********************* */}
+                                                        <div className="rated_msg absolute top-5 flex  justify-between items-center left-5 right-5">
+                                                            <div className="msg">
+                                                                <p className='m-0'>top rated</p>
+                                                            </div>
+                                                            <div className="msg_icon">
+                                                                <FaRegHeart />
+                                                            </div>
                                                         </div>
-                                                        <div className="msg_icon">
-                                                            <FaRegHeart />
+                                                        {/* ********************* */}
+                                                    </div>
+                                                    {/* *** */}
+                                                    <div className="card_box_detail px-4 py-5 rounded-4xl flex flex-col z-1 gap-2 relative">
+                                                        <h4 className='m-0 capitalize'>
+                                                            {titlecontent}
+                                                        </h4>
+                                                        {/* ****** */}
+                                                        <div className="time flex items-center gap-3 relative">
+                                                            <div className="icon flex items-center gap-1">
+                                                                <span><IoTime /></span>
+                                                                <span><p className='m-0'>2 Days 3 Nights</p></span>
+                                                            </div>
+                                                            <div className="guest flex items-center gap-1">
+                                                                <span><FaUserAlt /></span>
+                                                                <span><p className='m-0'>4 -5 guest</p></span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    {/* ********************* */}
-                                                </div>
-                                                {/* *** */}
-                                                <div className="card_box_detail px-4 py-5 rounded-4xl flex flex-col z-1 gap-2 relative">
-                                                    <h4 className='m-0 capitalize'>
-                                                        {item?.title}
-                                                    </h4>
-                                                    {/* ****** */}
-                                                    <div className="time flex items-center gap-3 relative">
-                                                        <div className="icon flex items-center gap-1">
-                                                            <span><IoTime /></span>
-                                                            <span><p className='m-0'>2 Days 3 Nights</p></span>
+                                                        {/* ******* */}
+                                                        <div className="price_book flex mt-3 justify-between items-center">
+                                                            <h5 className='m-0'>
+                                                                {item?.total_price?.price}.00 <span>/ person</span>
+                                                            </h5>
+                                                            <button className='rounded-full'>
+                                                                Book Now
+                                                            </button>
                                                         </div>
-                                                        <div className="guest flex items-center gap-1">
-                                                            <span><FaUserAlt /></span>
-                                                            <span><p className='m-0'>4 -5 guest</p></span>
+                                                        {/* *************** rating_list */}
+                                                        <div className="rating_list absolute flex items-center gap-1 right-10 shadow">
+                                                            <span className='w-5'><FontAwesomeIcon icon={faStar} /></span>
+                                                            <span><p className='m-0'>{item?.rating}</p></span>
+                                                            <span><p className='m-0'>({item?.reviews} reviews)</p></span>
                                                         </div>
-                                                    </div>
-                                                    {/* ******* */}
-                                                    <div className="price_book flex mt-3 justify-between items-center">
-                                                        <h5 className='m-0'>
-                                                            {item?.price}.00 <span>/ person</span>
-                                                        </h5>
-                                                        <button className='rounded-full'>
-                                                            Book Now
-                                                        </button>
-                                                    </div>
-                                                    {/* *************** rating_list */}
-                                                    <div className="rating_list absolute flex items-center gap-1 right-10 shadow">
-                                                        <span className='w-5'><FontAwesomeIcon icon={faStar} /></span>
-                                                        <span><p className='m-0'>{item?.rating}</p></span>
-                                                        <span><p className='m-0'>({item?.reviews} reviews)</p></span>
-                                                    </div>
 
+                                                    </div>
                                                 </div>
+                                                {/* *********** */}
                                             </div>
                                             {/* *********** */}
                                         </div>
-                                        {/* *********** */}
-                                    </div>
-                                    </SwiperSlide>
+                                        </SwiperSlide>
+                                    </>
                                 )
                             })
 
                         }
                     </Swiper>
-                    <div className="button_more flex justify-center">
-                        <button className=''>
-                            Load More
-                        </button>
-                    </div>
+
 
                 </div>
             </section>

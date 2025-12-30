@@ -1,24 +1,18 @@
+import Footer from '@/component/Footer'
 import Header from '@/component/Header'
+import Blog_Detail_section from '@/Pages/Blogs/Blog_Banner/Blog_Detail_section'
 import React from 'react'
-
+import "../../style/responsive.css"
 export default function page() {
     return (
         <>
-            <Header />
-            <section>
-                <div className='container'>
-                    <div className='row'>
+            <div className='container  blog'>
 
+                <Header />
+            </div>
 
-
-
-                    </div>
-
-                </div>
-
-
-            </section>
-
+            <Blog_Detail_section />
+            <Footer />
         </>
     )
 }

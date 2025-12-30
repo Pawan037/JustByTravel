@@ -85,9 +85,9 @@ export default function ExperienceExploreSection() {
 
     return (
         <>
-            <section className='experience_explore_section pb-20'>
+            <section className='experience_explore_section padding_bottom padding_top'>
                 <div className="container">
-                    <div className="explore_section section_title mb-10">
+                    <div className="explore_section section_title ">
                         <h2 className='mb-0'>
                             Explore experiences near {name}
                         </h2>
@@ -173,19 +173,19 @@ export default function ExperienceExploreSection() {
                                 nextEl: "#custom_next",
                             }}
                             loop={true}
-                            autoplay={{
-                                delay: 3100,
-                                disableOnInteraction: false,
-                            }}
+                            // autoplay={{
+                            //     delay: 3100,
+                            //     disableOnInteraction: false,
+                            // }}
 
 
                             breakpoints={{
                                 320: {
-                                    slidesPerView: 1
+                                    slidesPerView: 1.5
 
                                 },
                                 375: {
-                                    slidesPerView: 1
+                                    slidesPerView: 1.5
 
                                 },
                                 425: {
@@ -194,14 +194,15 @@ export default function ExperienceExploreSection() {
                                 },
 
                                 768: {
-                                    slidesPerView: 1,
+                                    slidesPerView: 2.5,
+                                    spaceBetween: 20,
                                 },
                                 992: {
                                     slidesPerView: 4,
                                     spaceBetween: 24,
                                 },
                             }}
-                            modules={[Pagination, Navigation, Autoplay]}
+                            modules={[Pagination, Navigation]}
                             className="mySwiper relative"
                         >
                             {
@@ -282,9 +283,9 @@ export default function ExperienceExploreSection() {
             </section>
 
             {/* ********************************************************************************************************************** section two big cities .........>>>>>>>>>>>>>>>>>> */}
-            <section className=''>
+            <section className='padding_bottom '>
                 <div className="container">
-                    <div className="explore_section section_title mb-10">
+                    <div className="explore_section section_title">
                         <h2 className='mb-0'>
                             Explore experiences near {name}
                         </h2>
@@ -366,8 +367,8 @@ export default function ExperienceExploreSection() {
                                 spaceBetween={0}
                                 // pagination={{ clickable: true }}
                                 navigation={{
-                                    prevEl: "#custom_prev",
-                                    nextEl: "#custom_next",
+                                    prevEl: "#experience_prev",
+                                    nextEl: "#experience_next",
                                 }}
                                 loop={true}
                                 autoplay={{
@@ -378,11 +379,11 @@ export default function ExperienceExploreSection() {
 
                                 breakpoints={{
                                     320: {
-                                        slidesPerView: 1
+                                        slidesPerView: 1.5
 
                                     },
                                     375: {
-                                        slidesPerView: 1
+                                        slidesPerView: 1.5
 
                                     },
                                     425: {
@@ -391,7 +392,8 @@ export default function ExperienceExploreSection() {
                                     },
 
                                     768: {
-                                        slidesPerView: 1,
+                                        slidesPerView: 2.5,
+                                        spaceBetween: 20,
                                     },
                                     992: {
                                         slidesPerView: 4,
@@ -469,12 +471,12 @@ export default function ExperienceExploreSection() {
                             </Swiper>
                             <div className="button_swiper2 absolute ">
                                 <div className="buttons_icon relative">
-                                    <button id='custom_prev' className='absolute'>
+                                    <button id='experience_prev' className='absolute'>
                                         <MdOutlineKeyboardArrowLeft size={30} />
                                     </button>
 
 
-                                    <button id='custom_next' className='absolute'>
+                                    <button id='experience_next' className='absolute'>
                                         <MdOutlineKeyboardArrowRight size={30} />
                                     </button>
                                 </div>

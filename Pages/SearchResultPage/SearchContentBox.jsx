@@ -43,8 +43,8 @@ export default function SearchContentBox() {
         setHasMore(true); // reset hasMore
     }, [search]);
     useEffect(() => {
-        if (data?.data?.data?.hotels) {
-            const newHotels = data.data.data.hotels;
+        if (data?.data?.hotels) {
+            const newHotels = data?.data?.hotels;
 
             if (page === 1) {
                 // New search → replace hotels
@@ -87,7 +87,7 @@ export default function SearchContentBox() {
     // const hotelSlug = createSlug(title);
 
 
-    console.log();
+    console.log(hotels, "list of hoitels ...... ..... .... ... ... ... .. .");
 
 
 
@@ -116,11 +116,11 @@ export default function SearchContentBox() {
                                                     loading="lazy"
                                                     width="1320"
                                                     height="770"
-                                                    src={item?.thumbnail}
+                                                    src={item?.image}
                                                     className="attachment-post-thumbnail size-post-thumbnail wp-post-image"
                                                     alt=""
                                                     decoding="async"
-                                                    srcset={item?.thumbnail}
+                                                    srcset={item?.image}
                                                     sizes="(max-width: 1320px) 100vw, 1320px"
                                                 />{" "}
                                             </a>
@@ -145,7 +145,7 @@ export default function SearchContentBox() {
                                             </div>
                                             <h5>
                                                 <a href="#">
-                                                    {item?.title}
+                                                    {item?.name}
                                                 </a>
                                             </h5>
                                             <div className="location-area">
@@ -305,7 +305,7 @@ export default function SearchContentBox() {
                                                     <span>
                                                         {/* <del>$55.00</del> */}
 
-                                                        ${item?.price}.00
+                                                        {item?.total_price?.price}.00
                                                     </span>
                                                 </div>{" "}
                                             </div>

@@ -883,7 +883,11 @@
   line-height: 1.3;
   color: #110f0f;
 }
-
+.experience_explore_section > .card > img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
 /* ******************************************* side bad r */
 .hotel_price_detail > .hotel_price_card {
   padding: 14px 0px;

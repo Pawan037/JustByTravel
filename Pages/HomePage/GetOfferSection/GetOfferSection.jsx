@@ -37,7 +37,7 @@ export default function GetOfferSection() {
     ]
     return (
         <>
-            <section className="GetOfferSection pb-20">
+            <section className="GetOfferSection padding_bottom padding_top">
                 <div className="container">
                     <div className="row justify-center">
                         <div className="col-md-12">

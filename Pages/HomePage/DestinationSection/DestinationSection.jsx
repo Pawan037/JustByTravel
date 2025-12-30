@@ -31,8 +31,8 @@ const card = [
 export default function DestinationSection() {
     return (
         <>
-            <section className='destination_section  pb-20 container md-pb '>
-                <div className="destination_title section_title mb-10">
+            <section className='destination_section padding_bottom padding_top container mt-8 md-pb  '>
+                <div className="destination_title section_title ">
                     <h2 className='mb-0'>
                         Trending Destinations
                     </h2>
@@ -48,24 +48,24 @@ export default function DestinationSection() {
                             {
                                 card?.map((item, k) => {
                                     return (
-                                        <>
 
-                                            {/* ****************** col-lg-4qqq */}
-                                            <div className="col-12 col-lg-3 " key={k}>
-                                                <div className="destination_box">
-                                                    <div className="destination_img  ">
-                                                        <img src={item?.img} className='rounded-3xl' alt="" />
-                                                        <div className="destination_name">
-                                                            <h5>
-                                                                {item?.name}
-                                                            </h5>
-                                                        </div>
+
+
+                                        <div className="col-12 col-lg-3 " key={k}>
+                                            <div className="destination_box">
+                                                <div className="destination_img  ">
+                                                    <img src={item?.img} className='rounded-3xl' alt="" />
+                                                    <div className="destination_name">
+                                                        <h5>
+                                                            {item?.name}
+                                                        </h5>
                                                     </div>
                                                 </div>
                                             </div>
-                                            {/* ******************** */}
+                                        </div>
 
-                                        </>
+
+
                                     )
 
 
@@ -86,8 +86,8 @@ export default function DestinationSection() {
                                 spaceBetween={0}
                                 pagination={{ clickable: true }}
                                 navigation={{
-                                    prevEl: "#custom_prev",
-                                    nextEl: "#custom_next",
+                                    prevEl: "#destination_prev",
+                                    nextEl: "#destination_next",
                                 }}
                                 loop={true}
                                 autoplay={{
@@ -98,20 +98,22 @@ export default function DestinationSection() {
 
                                 breakpoints={{
                                     320: {
-                                        slidesPerView: 1
+                                        slidesPerView: 1.5
 
                                     },
                                     375: {
-                                        slidesPerView: 1
+                                        slidesPerView: 1.5
 
                                     },
                                     425: {
-                                        slidesPerView: 1.5
+                                        slidesPerView: 1.5,
+
 
                                     },
 
                                     768: {
-                                        slidesPerView: 1,
+                                        slidesPerView: 2.5,
+                                        spaceBetween: 20,
                                     },
                                     992: {
                                         slidesPerView: 4,
@@ -151,12 +153,12 @@ export default function DestinationSection() {
                             </Swiper>
                             <div className="button_swiper absolute ">
                                 <div className="buttons_icon relative">
-                                    <button id='custom_prev' className='absolute'>
+                                    <button id='destination_prev' className='absolute'>
                                         <MdOutlineKeyboardArrowLeft size={30} />
                                     </button>
 
 
-                                    <button id='custom_next' className='absolute'>
+                                    <button id='destination_next' className='absolute'>
                                         <MdOutlineKeyboardArrowRight size={30} />
                                     </button>
                                 </div>

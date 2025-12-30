@@ -1,8 +1,6 @@
 "use client";
 import Header from '@/component/Header'
 import React from 'react'
-import SearchSection from '../HomePage/SearchSection'
-import SearchSidebar from './SearchSidebar'
 import SearchContentBox from './SearchContentBox'
 import "../../style/search.scss"
 import "../../style/searchresult.css"
@@ -31,10 +29,10 @@ export default function SearchResult() {
                     <div className="container">
                         <div className="row justify-center">
                             <div className="col-lg-12">
-                                <div className="search_banner_box">
+                                <div className="banner_box">
                                     <div className="title text-center">
                                         <h2 className='capitalize'>
-                                            {data?.data?.data?.location}  <span>hotels </span>
+                                            {data?.data?.location}  <span>hotels </span>
                                         </h2>
                                         <h5 className='capitalize'>
                                             {/* Book with us and you could <span className='bg-theme px-2'>save up to 80%</span> */}
@@ -59,7 +57,7 @@ export default function SearchResult() {
                     <nav aria-label="breadcrumb ">
                         <ol className="breadcrumb mb-0 pt-3 pb-3 ps-2">
                             <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-                            <li className="breadcrumb-item active capitalize" aria-current="page">{data?.data?.data?.location}</li>
+                            <li className="breadcrumb-item active capitalize" aria-current="page">{data?.data?.location}</li>
                         </ol>
                     </nav>
                 </div>

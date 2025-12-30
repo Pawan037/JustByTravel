@@ -6,10 +6,6 @@ export default function NearByHotel({ places }) {
 
     return (
         <>
-
-
-
-
             <section>
                 <div className="nearby_hotel_section">
 
@@ -29,13 +25,13 @@ export default function NearByHotel({ places }) {
                                         {/* ********************************** */}
                                         {
                                             places?.slice(0, 4)?.map((item, i) => {
-                                                let simplecontetnt = item?.name.split("").slice(0, 20).join("");
+                                                let simplecontetnt = item?.name.split("").slice(0, 10).join("");
 
-                                                if (simplecontetnt?.length > 15) {
+                                                if (simplecontetnt?.length > 9) {
                                                     simplecontetnt += "...";
                                                 }
-                                                let detail = item?.description.split(" ").slice(0, 3).join(" ");
-                                                if (detail?.length > 4) {
+                                                let detail = item?.description?.split(" ")?.slice(0, 3)?.join(" ") || " "
+                                                if (detail && detail?.length > 2) {
                                                     detail += "..."
                                                 }
 

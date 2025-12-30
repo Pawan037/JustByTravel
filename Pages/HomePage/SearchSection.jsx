@@ -148,7 +148,7 @@ export default function SearchSection() {
 
     // ********************************************************************************************************************************************************************
     return (
-        <section className="Search_section pb-20">
+        <section className="Search_section padding_bottom padding_top">
             <div className="container">
                 <div className="search_container">
                     <div className="search_container_box bg-white rounded-2xl pb-4 w-full">

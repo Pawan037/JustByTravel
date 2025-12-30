@@ -8,6 +8,8 @@ import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-i
 import 'swiper/css/pagination';
 import { useQuery } from '@tanstack/react-query';
 import { Get_Blogs } from '@/app/Route/endpoints';
+import { useRouter } from 'next/navigation';
+
 export default function Blogs() {
 
     // ******************************************************
@@ -16,25 +18,20 @@ export default function Blogs() {
         queryFn: () => Get_Blogs()
 
     })
-    console.log(data);
     if (isLoading) return <div className='pt-20 pb-20 text-center'>
         <h4>
             Blog is Loading .....
         </h4>
     </div>
-
-
-
-
-
+    console.log(data, "data..................");
 
 
 
     return (
         <>
 
-            <section className='blog_section container mt-10 mb-10'>
-                <div className="destination_title section_title mb-10">
+            <section className='blog_section container padding_bottom padding_top'>
+                <div className="destination_title section_title ">
                     <h2 className='mb-0 capitalize'>
                         From the blog
                     </h2>
@@ -50,28 +47,26 @@ export default function Blogs() {
                                 return (
 
 
-                                    <>
-                                        {/* ******************************* */}
-                                        <div className="col-12 col-md-6 col-lg-3" key={i}>
-                                            {/* **************** */}
-                                            <div className="blog_box mb-10">
-                                                <div className="blog_img relative ">
-                                                    <img src={item?.yoast_head_json?.og_image?.map((item) => item?.url)} className='rounded-2xl' alt="" />
-                                                    <div className="inner_content absolute top-6 left-4">
-                                                        Top Rated
-                                                    </div>
-                                                    <div className="content mt-2">
-                                                        <Link href="#">
-                                                            {item?.title?.rendered}
-                                                        </Link>
-                                                    </div>
+                                    <div className="col-12 col-md-6 col-lg-3" key={i}>
+                                        {/* **************** */}
+                                        <div className="blog_box mb-10">
+                                            <div className="blog_img relative ">
+                                                <img src={item?.yoast_head_json?.og_image?.map((item) => item?.url)} className='rounded-2xl' alt="" />
+                                                <div className="inner_content absolute top-6 left-4">
+                                                    Top Rated1
+                                                </div>
+                                                <div className="content mt-2">
+                                                    <Link href={`/blogs?detail=${item?.id}`} >
+                                                        {item?.title?.rendered}
+                                                    </Link>
                                                 </div>
                                             </div>
-                                            {/* **************** */}
                                         </div>
-                                        {/* ******************************* */}
+                                        {/* **************** */}
+                                    </div>
 
-                                    </>
+
+
 
                                 )
 
@@ -94,8 +89,8 @@ export default function Blogs() {
                             spaceBetween={0}
 
                             navigation={{
-                                prevEl: "#custom_prev",
-                                nextEl: "#custom_next",
+                                prevEl: "#blog_prev",
+                                nextEl: "#blog_next",
                             }}
                             loop={true}
                             autoplay={{
@@ -106,11 +101,11 @@ export default function Blogs() {
 
                             breakpoints={{
                                 320: {
-                                    slidesPerView: 1
+                                    slidesPerView: 1.5
 
                                 },
                                 375: {
-                                    slidesPerView: 1
+                                    slidesPerView: 1.5
 
                                 },
                                 425: {
@@ -119,7 +114,8 @@ export default function Blogs() {
                                 },
 
                                 768: {
-                                    slidesPerView: 1,
+                                    slidesPerView: 2.5,
+                                    spaceBetween: 20,
                                 },
                                 992: {
                                     slidesPerView: 4,
@@ -145,7 +141,7 @@ export default function Blogs() {
                                                             Top Rated
                                                         </div>
                                                         <div className="content mt-2">
-                                                            <Link href="#">
+                                                            <Link href={`/blogs?detail=${item?.id}`}>
                                                                 {item?.title?.rendered}
                                                             </Link>
                                                         </div>
@@ -166,12 +162,12 @@ export default function Blogs() {
                         </Swiper>
                         <div className="button_swiper absolute ">
                             <div className="buttons_icon relative">
-                                <button id='custom_prev' className='absolute'>
+                                <button id='blog_prev' className='absolute'>
                                     <MdOutlineKeyboardArrowLeft size={30} />
                                 </button>
 
 
-                                <button id='custom_next' className='absolute'>
+                                <button id='blog_next' className='absolute'>
                                     <MdOutlineKeyboardArrowRight size={30} />
                                 </button>
                             </div>
